@@ -1,4 +1,5 @@
 1) Need the latest chrome driver intsatlled in c drive "c:/chromedriver_win32/chromedriver.exe". My chrome version was 73.0. Install it from this link:http://chromedriver.chromium.org/downloads
+This will run on chrome browser only.
 
 2) Go to this URL and enable allow access to less secure apps https://myaccount.google.com/lesssecureapps?pli=1
 
