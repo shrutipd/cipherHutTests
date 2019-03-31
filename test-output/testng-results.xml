@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="111002" started-at="2019-03-31T16:24:24Z" finished-at="2019-03-31T16:26:15Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="111002" started-at="2019-03-31T16:24:24Z" finished-at="2019-03-31T16:26:15Z">
+      <class name="com.test.cipherhut.LoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.test.cipherhut.LoginTest@3e6fa38a]" name="setUp" is-config="true" duration-ms="12718" started-at="2019-03-31T21:54:24Z" finished-at="2019-03-31T21:54:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.test.cipherhut.LoginTest@3e6fa38a]" name="testLogin" duration-ms="53944" started-at="2019-03-31T21:54:36Z" finished-at="2019-03-31T21:55:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method status="PASS" signature="generateCSVPairs()[pri:0, instance:com.test.cipherhut.LoginTest@3e6fa38a]" name="generateCSVPairs" duration-ms="17391" started-at="2019-03-31T21:55:30Z" depends-on-methods="com.test.cipherhut.LoginTest.testLogin" finished-at="2019-03-31T21:55:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateCSVPairs -->
+        <test-method status="PASS" signature="checkBalance()[pri:0, instance:com.test.cipherhut.LoginTest@3e6fa38a]" name="checkBalance" duration-ms="26309" started-at="2019-03-31T21:55:48Z" depends-on-methods="com.test.cipherhut.LoginTest.generateCSVPairs" finished-at="2019-03-31T21:56:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBalance -->
+        <test-method status="PASS" signature="close()[pri:0, instance:com.test.cipherhut.LoginTest@3e6fa38a]" name="close" is-config="true" duration-ms="574" started-at="2019-03-31T21:56:14Z" finished-at="2019-03-31T21:56:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.test.cipherhut.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
