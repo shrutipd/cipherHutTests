@@ -5,9 +5,13 @@ package com.test.cipherhut;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.mail.Folder;
 import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Store;
 
-
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,6 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -31,11 +36,13 @@ public class LoginTest {
 	
   private WebDriver driver;
   private static EmailUtils emailUtils;
-  
+  private String CipherhutId;
+  private String CipherhutPassword;
   
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-	  System.setProperty("webdriver.chrome.driver","C:/chromedriver_win32/chromedriver.exe");
+	  readUserProperty();
+	  System.setProperty("webdriver.chrome.driver","./chromedriver.exe");
 	   driver = new ChromeDriver();
 	   driver.manage().window().maximize(); 
        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -45,9 +52,9 @@ public class LoginTest {
   public void testLogin() throws Exception {
 
     driver.get("https://www.cbanx.com/login");
-    driver.findElement(By.xpath("/html/body/app-root/div/app-login/section/div[2]/div/div/div/app-login-form/div/form/div/ul[2]/li/input")).sendKeys("1944");
+    driver.findElement(By.xpath("/html/body/app-root/div/app-login/section/div[2]/div/div/div/app-login-form/div/form/div/ul[2]/li/input")).sendKeys(CipherhutId);
     driver.findElement(By.xpath("/html/body/app-root/section/div/div/div[2]/button[2]")).click();
-    driver.findElement(By.xpath("/html/body/app-root/div/app-login/section/div[2]/div/div/div/app-login-form/div/form/div/ul[3]/li/input")).sendKeys("Cipherhut@123");
+    driver.findElement(By.xpath("/html/body/app-root/div/app-login/section/div[2]/div/div/div/app-login-form/div/form/div/ul[3]/li/input")).sendKeys(CipherhutPassword);
    // driver.findElement(By.xpath("/html/body/app-root/div/app-login/section/div[2]/div/div/div/app-login-form/div/form/div/ul[5]/li/button")).sendKeys(Keys.ENTER);
     driver.findElement(By.className("login-btn")).click();
     
@@ -202,6 +209,32 @@ public class LoginTest {
 	      Assert.fail(e.getMessage());
 	    }
 	    return OTP;
+	  }
+  
+  private void readUserProperty() {
+	  
+	  Properties props = System.getProperties();
+	    try {
+	      //props.load(new FileInputStream(new File("C:\\Users\\Shrpa\\eclipse-workspace\\com.test.cipherhut\\src\\main\\resources\\email.properties")));
+	    	props.load(new FileInputStream(new File("./user.properties")));
+	    	CipherhutId=getUseridFromProperties();
+	    	CipherhutPassword=getEmailPasswordFromProperties();
+	    	System.out.println(CipherhutId);
+	    	System.out.println(CipherhutPassword);
+	    } catch(Exception e) {
+	      e.printStackTrace();
+	      System.exit(-1);
+	    }
+
+	    
+  }
+  
+  public static String getUseridFromProperties(){
+	    return System.getProperty("cipherhut.id");
+	  }
+
+	  public static String getEmailPasswordFromProperties(){
+	    return System.getProperty("cipherhut.password");
 	  }
   
 }

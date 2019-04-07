@@ -84,6 +84,7 @@ public class EmailUtils {
 	  }
   
 
+
   /**
    * Connects to email server with credentials provided to read from a given folder of the email application
    * @param username Email username (e.g. janedoe@email.com)
