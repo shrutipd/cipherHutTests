@@ -1,3 +1,20 @@
+PRE-REQ
+========
+
+Please note this is a maven project. 
+The steps to follow are 
+
+a) git clone https://github.com/shrutipd/cipherHutTests.git
+b) Then import this project in Eclipse or your IDE using .I use eclipse so it is File->Import->Maven->Existing Maven Project annd provide the path to folder you have cloned the repo to . 
+
+c) Once this project is imported in eclipse you will see a pom.xml file . You need to RightClick on this pom.xml file Select Run As -> Maven Build set the goal as install. This will download all the needed dependencies needed to run this project . 
+
+d) Once the step is executed above. You can right click on file LoginTests.java and run as TestNG test. This will execute all the tests. 
+
+Other instructions are given below . 
+
+INSTRUCTIONS TO RUN THE TESTS
+=============================
 1)Chromedriver version 73.0 is included by default  . Clone this project and this should run the chrome. In case you are running a higher version of chrome download chrome from http://chromedriver.chromium.org/downloads and place it in parent folder  
 This will run on chrome browser only.
 
